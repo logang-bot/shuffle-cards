@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="26F-Ku-dVi">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -25,8 +25,12 @@
                                     <action selector="shuffleButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LJV-dr-3cH"/>
                                 </connections>
                             </button>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="TQc-2m-6kH">
+                                <rect key="frame" x="0.0" y="124" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sXg-nj-bff">
-                                <rect key="frame" x="0.0" y="149" width="414" height="713"/>
+                                <rect key="frame" x="0.0" y="185" width="414" height="677"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jTc-eN-xFf">
                                     <size key="itemSize" width="128" height="128"/>
@@ -49,11 +53,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="TQc-2m-6kH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7hg-Aa-8Ei"/>
                             <constraint firstItem="CJk-hH-2GU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="Ebm-AG-8dW"/>
+                            <constraint firstItem="sXg-nj-bff" firstAttribute="top" secondItem="TQc-2m-6kH" secondAttribute="bottom" constant="10" id="IEW-pe-XbQ"/>
+                            <constraint firstItem="TQc-2m-6kH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ki8-To-fu6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sXg-nj-bff" secondAttribute="bottom" id="R8W-wj-SgK"/>
                             <constraint firstItem="CJk-hH-2GU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="S44-Qd-Efq"/>
+                            <constraint firstItem="TQc-2m-6kH" firstAttribute="top" secondItem="CJk-hH-2GU" secondAttribute="bottom" constant="5" id="UGZ-G5-7As"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CJk-hH-2GU" secondAttribute="trailing" constant="70" id="VBp-3V-Ce8"/>
-                            <constraint firstItem="sXg-nj-bff" firstAttribute="top" secondItem="CJk-hH-2GU" secondAttribute="bottom" constant="30" id="onJ-ST-Z83"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sXg-nj-bff" secondAttribute="trailing" id="uhQ-HW-a6r"/>
                             <constraint firstItem="sXg-nj-bff" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="w0S-Id-IHY"/>
                         </constraints>
@@ -61,11 +68,12 @@
                     <navigationItem key="navigationItem" title="Shuffle Cards App" id="Mk5-O6-vxU"/>
                     <connections>
                         <outlet property="cardsCollectionView" destination="sXg-nj-bff" id="amk-XK-Izc"/>
+                        <outlet property="searchBar" destination="TQc-2m-6kH" id="w3M-Pa-M0J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="194" y="134"/>
+            <point key="canvasLocation" x="192.75362318840581" y="133.92857142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6ij-XX-HSH">

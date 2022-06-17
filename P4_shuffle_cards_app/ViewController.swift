@@ -12,8 +12,12 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var cardsCollectionView: UICollectionView!
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     var shuffleId: String?
     var cardsUrls: [String] = []
+    var cardsData: [Card] = []
+    var cardsToShow: [Card] = []
     let fullScreenImageView: UIImageView = UIImageView()
     
     // Approach 2 (with cache)
@@ -22,15 +26,28 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let margins = view.layoutMarginsGuide
+        
         cardsCollectionView.delegate =  self
         cardsCollectionView.dataSource = self
+        
+        searchBar.delegate = self
         
         let uiNib = UINib(nibName: "CardCollectionViewCell", bundle: nil)
         cardsCollectionView.register(uiNib, forCellWithReuseIdentifier: "MyCellTest")
         
+        searchBar.showsCancelButton = true
+        searchBar.isHidden = true
         
         // Setting constraints for fullScreenImageView
+        setupFullScreenImage()
+    }
+    
+    @objc private func imageTapped(_ recognizer: UITapGestureRecognizer) {
+        self.fullScreenImageView.isHidden = true
+    }
+    
+    func setupFullScreenImage(){
+        let margins = view.layoutMarginsGuide
         view.addSubview(fullScreenImageView)
         
         fullScreenImageView.isUserInteractionEnabled = true
@@ -45,10 +62,6 @@ class ViewController: UIViewController {
         
         fullScreenImageView.isHidden = true
     }
-    
-    @objc private func imageTapped(_ recognizer: UITapGestureRecognizer) {
-        self.fullScreenImageView.isHidden = true
-    }
 
     @IBAction func shuffleButton(_ sender: Any) {
         self.requestShuffleIdWithNetMan(url: "https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1")
@@ -58,9 +71,10 @@ class ViewController: UIViewController {
     
 }
 
-// Functions to handle the API requests
+// Functions to handle the API requests with Network Manager
 extension ViewController {
     
+    // Function to get the suffle id
     func requestShuffleIdWithNetMan(url: String){
         guard let url = URL(string: url) else {return}
         
@@ -68,7 +82,7 @@ extension ViewController {
         
         NetworkManager.shared.get(ShuffleDeck.self, from: url){result in
             
-            SVProgressHUD.dismiss()
+//            SVProgressHUD.dismiss()
             
             switch result {
             case .success(let shuffleData):
@@ -91,6 +105,7 @@ extension ViewController {
         
     }
     
+    // Function to populate the array ot the imgs' urls
     func fillImgUrlsArrayWithNetMan(url: String){
         guard let url = URL(string: url) else {return}
         
@@ -101,17 +116,23 @@ extension ViewController {
                 
                     let dataCards = shuffleDataCards.cards
                     self.cardsUrls.removeAll()
+                
+                    self.cardsData.removeAll()
                     
                     // Approach 2 (cache)
 //                    self.imgsCache = [UIImage?](repeating: nil, count: 52)
                     
                     for card in dataCards {
-                   
                         let cardUrl = card.image
                         self.cardsUrls.append(cardUrl)
+                        
+                        // Storing in Cards array all the data of the card
+                        self.cardsData.append(card)
                     }
 //                DispatchQueue.main.sync {
+                    self.cardsToShow = self.cardsData
                     self.cardsCollectionView.reloadData()
+                    self.searchBar.isHidden = false
 //                }
                 
             case .failure(let error):
@@ -126,6 +147,11 @@ extension ViewController {
         }
     }
     
+}
+
+// Functions to handle the API requests
+/*
+extension ViewController {
     // Function to get the suffle id
     func requestShuffleId(url: String){
         guard let url = URL(string: url) else {return}
@@ -205,19 +231,47 @@ extension ViewController {
     }
 
 }
+*/
+
+extension ViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text, !text.isEmpty else {
+            cardsToShow = cardsData
+            self.cardsCollectionView.reloadData()
+            return
+        }
+        
+        cardsToShow = cardsData.filter{card in
+            return card.suit == text.uppercased()
+        }
+        
+        if cardsToShow.count == 0 {return}
+        
+        self.cardsCollectionView.reloadData()
+        
+    }
+}
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cardsUrls.count
+//        return cardsUrls.count
+//        return cardsData.count
+        return cardsToShow.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = cardsCollectionView.dequeueReusableCell(withReuseIdentifier: "MyCellTest", for: indexPath as IndexPath) as? CardCollectionViewCell ?? CardCollectionViewCell()
         
-        let card = cardsUrls[indexPath.row]
+//        let card = cardsUrls[indexPath.row]
+//        let card = cardsData[indexPath.row]
+        let card = cardsToShow[indexPath.row]
         
         // Approach 1
-        if let url = URL(string: card){
+        if let url = URL(string: card.image){
             cell.cardImageView.load(url: url)
 //            imgsCache.append(cell.cardImageView.image)
 //            imgsCache[indexPath.row] = cell.cardImageView.image
@@ -240,10 +294,12 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // Approach 1
-        let card = cardsUrls[indexPath.row]
+//        let card = cardsUrls[indexPath.row]
+//        let card = cardsData[indexPath.row]
+        let card = cardsToShow[indexPath.row]
 
 
-        if let url = URL(string: card){
+        if let url = URL(string: card.image){
             self.fullScreenImageView.load(url: url)
             self.fullScreenImageView.isHidden = false
         }
