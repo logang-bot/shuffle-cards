@@ -53,8 +53,8 @@ class ViewController: UIViewController {
         fullScreenImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageTapped)))
         fullScreenImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        fullScreenImageView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 100).isActive = true
-        fullScreenImageView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -100).isActive = true
+        fullScreenImageView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 120).isActive = true
+        fullScreenImageView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -120).isActive = true
         
         fullScreenImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
         fullScreenImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true

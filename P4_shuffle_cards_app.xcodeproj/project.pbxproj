@@ -8,10 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		85DF4CD7FE5AB1F6C4DDA36B /* Pods_P4_shuffle_cards_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD825A12AB01B6C1B8D1E9F /* Pods_P4_shuffle_cards_app.framework */; };
-		C21BA0B9285C23BE00949227 /* BasicRequestFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BA0B8285C23BE00949227 /* BasicRequestFeatures.swift */; };
-		C21BA0BB285C247A00949227 /* CollectionViewFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BA0BA285C247A00949227 /* CollectionViewFeatures.swift */; };
-		C21BA0BD285C25AF00949227 /* ImproveRequestFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BA0BC285C25AF00949227 /* ImproveRequestFeatures.swift */; };
-		C21BA0BF285C26B600949227 /* SearchBarFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BA0BE285C26B600949227 /* SearchBarFeatures.swift */; };
+		C211F1B0285F7D7F00A0E5A2 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C211F1AF285F7D7F00A0E5A2 /* ImageManager.swift */; };
 		C22E5B5E2852B9C500D12FFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22E5B5D2852B9C500D12FFC /* AppDelegate.swift */; };
 		C22E5B602852B9C500D12FFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22E5B5F2852B9C500D12FFC /* SceneDelegate.swift */; };
 		C22E5B622852B9C500D12FFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22E5B612852B9C500D12FFC /* ViewController.swift */; };
@@ -20,6 +17,7 @@
 		C22E5B6A2852B9C500D12FFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C22E5B682852B9C500D12FFC /* LaunchScreen.storyboard */; };
 		C22E5B762852BE5100D12FFC /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22E5B742852BE5100D12FFC /* CardCollectionViewCell.swift */; };
 		C22E5B772852BE5100D12FFC /* CardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C22E5B752852BE5100D12FFC /* CardCollectionViewCell.xib */; };
+		C257F8B9285CB15900E6A65A /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C257F8B8285CB15900E6A65A /* ExtensionViewController.swift */; };
 		C2ADD08328582349000588A4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADD08228582349000588A4 /* NetworkManager.swift */; };
 		C2ADD085285823F0000588A4 /* ShuffleDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADD084285823F0000588A4 /* ShuffleDeck.swift */; };
 		C2ADD08928582633000588A4 /* CardsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADD08828582633000588A4 /* CardsResponse.swift */; };
@@ -28,10 +26,7 @@
 /* Begin PBXFileReference section */
 		00B6ADC0048CEFC6157BC608 /* Pods-P4_shuffle_cards_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-P4_shuffle_cards_app.release.xcconfig"; path = "Target Support Files/Pods-P4_shuffle_cards_app/Pods-P4_shuffle_cards_app.release.xcconfig"; sourceTree = "<group>"; };
 		3CD825A12AB01B6C1B8D1E9F /* Pods_P4_shuffle_cards_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_P4_shuffle_cards_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C21BA0B8285C23BE00949227 /* BasicRequestFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicRequestFeatures.swift; sourceTree = "<group>"; };
-		C21BA0BA285C247A00949227 /* CollectionViewFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewFeatures.swift; sourceTree = "<group>"; };
-		C21BA0BC285C25AF00949227 /* ImproveRequestFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImproveRequestFeatures.swift; sourceTree = "<group>"; };
-		C21BA0BE285C26B600949227 /* SearchBarFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarFeatures.swift; sourceTree = "<group>"; };
+		C211F1AF285F7D7F00A0E5A2 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		C22E5B5A2852B9C500D12FFC /* P4_shuffle_cards_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P4_shuffle_cards_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C22E5B5D2852B9C500D12FFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C22E5B5F2852B9C500D12FFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +37,7 @@
 		C22E5B6B2852B9C500D12FFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C22E5B742852BE5100D12FFC /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		C22E5B752852BE5100D12FFC /* CardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewCell.xib; sourceTree = "<group>"; };
+		C257F8B8285CB15900E6A65A /* ExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
 		C2ADD08228582349000588A4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C2ADD084285823F0000588A4 /* ShuffleDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleDeck.swift; sourceTree = "<group>"; };
 		C2ADD08828582633000588A4 /* CardsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsResponse.swift; sourceTree = "<group>"; };
@@ -104,10 +100,7 @@
 				C22E5B5D2852B9C500D12FFC /* AppDelegate.swift */,
 				C22E5B5F2852B9C500D12FFC /* SceneDelegate.swift */,
 				C22E5B612852B9C500D12FFC /* ViewController.swift */,
-				C21BA0B8285C23BE00949227 /* BasicRequestFeatures.swift */,
-				C21BA0BC285C25AF00949227 /* ImproveRequestFeatures.swift */,
-				C21BA0BA285C247A00949227 /* CollectionViewFeatures.swift */,
-				C21BA0BE285C26B600949227 /* SearchBarFeatures.swift */,
+				C257F8B8285CB15900E6A65A /* ExtensionViewController.swift */,
 				C22E5B632852B9C500D12FFC /* Main.storyboard */,
 				C22E5B662852B9C500D12FFC /* Assets.xcassets */,
 				C22E5B682852B9C500D12FFC /* LaunchScreen.storyboard */,
@@ -129,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				C2ADD08228582349000588A4 /* NetworkManager.swift */,
+				C211F1AF285F7D7F00A0E5A2 /* ImageManager.swift */,
 			);
 			path = managers;
 			sourceTree = "<group>";
@@ -261,14 +255,12 @@
 				C2ADD085285823F0000588A4 /* ShuffleDeck.swift in Sources */,
 				C22E5B762852BE5100D12FFC /* CardCollectionViewCell.swift in Sources */,
 				C22E5B622852B9C500D12FFC /* ViewController.swift in Sources */,
-				C21BA0BD285C25AF00949227 /* ImproveRequestFeatures.swift in Sources */,
+				C211F1B0285F7D7F00A0E5A2 /* ImageManager.swift in Sources */,
 				C2ADD08328582349000588A4 /* NetworkManager.swift in Sources */,
 				C22E5B5E2852B9C500D12FFC /* AppDelegate.swift in Sources */,
 				C22E5B602852B9C500D12FFC /* SceneDelegate.swift in Sources */,
-				C21BA0BB285C247A00949227 /* CollectionViewFeatures.swift in Sources */,
+				C257F8B9285CB15900E6A65A /* ExtensionViewController.swift in Sources */,
 				C2ADD08928582633000588A4 /* CardsResponse.swift in Sources */,
-				C21BA0BF285C26B600949227 /* SearchBarFeatures.swift in Sources */,
-				C21BA0B9285C23BE00949227 /* BasicRequestFeatures.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
